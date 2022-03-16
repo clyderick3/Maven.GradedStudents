@@ -50,5 +50,9 @@ public class Student {
         //Call this method so it adds another exam to this list.
         this.examScores.add(examScore);
     }
+
+    public void setExamScore(int examNumber, double newScore) {
+        this.examScores.add(examNumber, newScore);
+    }
 }
 
