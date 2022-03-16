@@ -31,12 +31,24 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public ArrayList<Double> getExamScores() {
-        return examScores;
+    public String getExamScores() {
+        //need to iterate through the list to get every exam score.
+        String result = "Exam Scores:\n";
+        int index = 1;
+        for (int i = 0; i < examScores.size() ; i++) {
+            result += "Exam " + index + " -> " + examScores.get(i) + "\n";
+            index++;
+        }
+        return result;
     }
 
-    public void setExamScores(ArrayList<Double> examScores) {
-        this.examScores = examScores;
+    public Integer getNumbersOfExamsTaken() {
+        return this.examScores.size();
+    }
+
+    public void addExamScore(double examScore) {
+        //Call this method so it adds another exam to this list.
+        this.examScores.add(examScore);
     }
 }
 
