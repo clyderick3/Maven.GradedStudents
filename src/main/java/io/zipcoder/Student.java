@@ -54,5 +54,20 @@ public class Student {
     public void setExamScore(int examNumber, double newScore) {
         this.examScores.add(examNumber, newScore);
     }
+
+    public double getAverageExamScore() {
+        return getExamScores(examScores)/getNumbersOfExamsTaken();
+    }
+
+    public String toString() {
+        String outcome;
+        String averageScore;
+        Double average = this.getAverageExamScore();
+        outcome = "Student Name: " + firstName + " " + lastName + "\n";
+        averageScore = "> Average Score: " + average + "\n";
+        outcome = outcome.concat(averageScore);
+        outcome = outcome.concat(this.getExamScores())
+
+    }
 }
 
