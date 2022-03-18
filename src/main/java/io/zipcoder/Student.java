@@ -65,8 +65,10 @@ public class Student {
         Double average = this.getAverageExamScore();
         outcome = "Student Name: " + firstName + " " + lastName + "\n";
         averageScore = "> Average Score: " + average + "\n";
+
         outcome = outcome.concat(averageScore);
-        outcome = outcome.concat(this.getExamScores())
+        outcome = outcome.concat(this.getExamScores());
+        return outcome;
 
     }
 }
