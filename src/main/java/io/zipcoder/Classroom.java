@@ -1,5 +1,10 @@
 package io.zipcoder;
 
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Classroom {
 
     Student[] students;
@@ -45,10 +50,17 @@ public class Classroom {
         }
 
         public boolean removeStudent (String firstName, String lastName){
+
         for (int i = 0; i < students.length ; i++){
             if (students[i].getFirstName().equals(firstName) &&
-            students[i].getLastName().equals(lastName))
+            students[i].getLastName().equals(lastName)) {
+                students[i] = null;
+                List<Student> sortedList = Arrays.stream(students).sorted(Comparator.nullsLast(Comparator.comparing(Student::getLastName))).collect((Collectors.toList()));
+                students = sortedList.toArray(new Student[students.length]);
+                return true;
+            }
         }
+        return false;
         }
 
 

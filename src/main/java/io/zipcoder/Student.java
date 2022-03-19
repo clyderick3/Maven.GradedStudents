@@ -35,7 +35,7 @@ public class Student {
         //need to iterate through the list to get every exam score.
         String result = "Exam Scores:\n";
         int index = 1;
-        for (int i = 0; i < examScores.size() ; i++) {
+        for (int i = 0; i < examScores.size(); i++) {
             result += "Exam " + index + " -> " + examScores.get(i) + "\n";
             index++;
         }
@@ -77,5 +77,6 @@ public class Student {
         return outcome;
 
     }
+
 }
 
