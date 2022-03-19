@@ -56,7 +56,13 @@ public class Student {
     }
 
     public double getAverageExamScore() {
-        return getExamScores(examScores)/getNumbersOfExamsTaken();
+        Double result = 0.0;
+        for (int i = 0; i < examScores.size() - 1; i++) {
+            result += examScores.get(i);
+        }
+        return result / getNumbersOfExamsTaken();
+
+
     }
 
     public String toString() {
