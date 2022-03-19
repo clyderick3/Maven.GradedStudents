@@ -52,7 +52,7 @@ public class Student {
     }
 
     public void setExamScore(int examNumber, double newScore) {
-        this.examScores.add(examNumber, newScore);
+        this.examScores.set(examNumber, newScore);
     }
 
     public Double getAverageExamScore() {
