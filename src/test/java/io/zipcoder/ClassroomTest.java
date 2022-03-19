@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ClassroomTest {
     Classroom classroom;
@@ -43,10 +44,49 @@ public class ClassroomTest {
 
     @Test
     public void addStudent() {
+        // : Given
+        int maxNumberOfStudents = 1;
+        Classroom classroom = new Classroom(maxNumberOfStudents);
+        Double[] examScores = {100.0, 150.0, 250.0, 0.0};
+        Student student = new Student("Leon", "Hunter", examScores);
+
+        // When
+        Student[] preEnrollment = classroom.getStudents();
+        classroom.addStudent(student);
+        Student[] postEnrollment = classroom.getStudents();
+
+        // Then
+        String preEnrollmentAsString = Arrays.toString(preEnrollment);
+        String postEnrollmentAsString = Arrays.toString(postEnrollment);
+
+        System.out.println("===========================");
+        System.out.println(preEnrollmentAsString);
+        System.out.println("===========================");
+        System.out.println(postEnrollmentAsString);
     }
 
     @Test
     public void removeStudent() {
+        // : Given
+        int maxNumberOfStudents = 1;
+        Classroom classroom = new Classroom(maxNumberOfStudents);
+        Double[] examScores = {100.0, 150.0, 250.0, 0.0};
+        Student student = new Student("Leon", "Hunter", examScores);
+
+        // When
+        classroom.addStudent(student);
+        Student[] preEnrollment = classroom.getStudents();
+        classroom.removeStudent(student.getFirstName(), student.getLastName());
+        Student[] postEnrollment = classroom.getStudents();
+
+        // Then
+        String preEnrollmentAsString = Arrays.toString(preEnrollment);
+        String postEnrollmentAsString = Arrays.toString(postEnrollment);
+
+        System.out.println("===========================");
+        System.out.println(preEnrollmentAsString);
+        System.out.println("===========================");
+        System.out.println(postEnrollmentAsString);
     }
 
     @Test

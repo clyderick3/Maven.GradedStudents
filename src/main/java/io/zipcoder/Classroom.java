@@ -6,20 +6,20 @@ import java.util.stream.Collectors;
 public class Classroom {
 
     Student[] students;
-    int maxStudents;
 
     public Classroom() {
-        this(30);
+        this.students = new Student[30];
     }
 
-    public Classroom(int maxStudents) {
-        this.students = new Student[maxStudents];
-        this.maxStudents = maxStudents;
+    public Classroom(Integer maxNumberOfStudents) {
+        this.students = new Student[maxNumberOfStudents];
     }
 
-    public Classroom(Student[] array) {
-        this.students = array;
-        this.maxStudents = array.length;
+    public Classroom(Student[] newStudentArray) {
+        this.students = new Student[newStudentArray.length];
+        for (int i = 0; i < newStudentArray.length; i++) {
+            students[i] = newStudentArray[i];
+        }
     }
 
     public Student[] getStudents() {
@@ -35,30 +35,27 @@ public class Classroom {
         return result;
     }
 
-    public boolean addStudent(Student student) {
-        for (int i = 0; i < students.length; i++) {
-            if (students[i] == null) {
-                students[i] = student;
-                return true;
-            }
-        }
-        System.out.println("Classroom is at capacity.");
-        return false;
+    public void addStudent(Student student) {
+        ArrayList<Student> addStudentArray = new ArrayList<>
+                (Arrays.asList(this.students)); // might be the issue - it creates a list from
+        addStudentArray.add(student);  // the parameter 'Student student' instead of the class
+        this.students = addStudentArray.toArray(new Student[0]);   // same concept as removing a student
 
+        System.out.println("Classroom is at capacity.");
     }
 
-    public boolean removeStudent(String firstName, String lastName) {
-
-        for (int i = 0; i < students.length; i++) {
-            if (students[i].getFirstName().equals(firstName) &&
-                    students[i].getLastName().equals(lastName)) {
-                students[i] = null;
-                List<Student> sortedList = Arrays.stream(students).sorted(Comparator.nullsLast(Comparator.comparing(Student::getLastName))).collect((Collectors.toList()));
-                students = sortedList.toArray(new Student[students.length]);
-                return true;
+    public void removeStudent(String firstName, String lastName) {
+        ArrayList<Student> removeStudentArray = new ArrayList<>(Arrays.asList(students));
+        for (int i = 0; i < removeStudentArray.size(); i++) {
+            if (removeStudentArray.get(i) != null) {
+                String actualFirstName = removeStudentArray.get(i).getFirstName();
+                String actualLastName = removeStudentArray.get(i).getLastName();
+                if (actualFirstName == firstName && actualLastName == lastName) {
+                    removeStudentArray.remove(i);
+                }
             }
         }
-        return false;
+        this.students = removeStudentArray.toArray(new Student[0]);
     }
 
     public Student[] getStudentByScore() {
