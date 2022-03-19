@@ -31,7 +31,7 @@ public class Classroom {
         for (int i = 0; i < getStudentCount(); i++) {
             result += students[i].getAverageExamScore();
         }
-        result = result / students.length;
+        result = result / getStudentCount();
         return result;
     }
 

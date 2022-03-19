@@ -142,6 +142,9 @@ public class StudentTest {
 
     @Test
     public void getAverageExamScore() {
+        Double expected = 103.5;
+        Double actual = student.getAverageExamScore();
+        assertEquals(expected, actual);
     }
 
     @Test

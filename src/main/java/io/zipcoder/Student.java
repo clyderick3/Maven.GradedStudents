@@ -55,9 +55,9 @@ public class Student {
         this.examScores.add(examNumber, newScore);
     }
 
-    public double getAverageExamScore() {
+    public Double getAverageExamScore() {
         Double result = 0.0;
-        for (int i = 0; i < examScores.size() - 1; i++) {
+        for (int i = 0; i < examScores.size(); i++) {
             result += examScores.get(i);
         }
         return result / getNumbersOfExamsTaken();
