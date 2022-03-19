@@ -110,6 +110,11 @@ public class StudentTest {
 
     @Test
     public void getFirstName() {
+        String firstName = "Michael";
+        String lastName = "Brooks";
+        Double[] examScores = {100.0, 95.0, 123.0, 96.0};
+        Student students = new Student(firstName, lastName, examScores);
+        assertEquals(firstName, students.getFirstName());
     }
 
     @Test
