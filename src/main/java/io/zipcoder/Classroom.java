@@ -63,6 +63,9 @@ public class Classroom {
         return false;
         }
 
+    public Student[] getStudentByScore(){
+                List<Student> sortedList = Arrays.stream(students).sorted(Comparator.nullsLast(Comparator.comparing(Student::getAverageExamScore))).collect((Collectors.toList()));
+                return sortedList.toArray(new Student[students.length]);
 
-
-    }
+            }
+        }
