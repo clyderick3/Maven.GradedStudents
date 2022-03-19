@@ -64,6 +64,9 @@ public class Classroom {
         }
 
     public Student[] getStudentByScore(){
+                // Sorting list using stream (Let's you use Comparator and lambdas. nullsLast means put nulls at the end.
+                // Student::(what you're sorting by).
+                //Collect turns the stream back into a list.
                 List<Student> sortedList = Arrays.stream(students).sorted(Comparator.nullsLast(Comparator.comparing(Student::getAverageExamScore))).collect((Collectors.toList()));
                 return sortedList.toArray(new Student[students.length]);
 
