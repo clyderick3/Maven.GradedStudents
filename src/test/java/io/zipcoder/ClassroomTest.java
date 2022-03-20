@@ -92,11 +92,12 @@ public class ClassroomTest {
     @Test
     public void getStudentByScore() {
         Double[] examScores = {60.0, 50.0, 40.0, 30.0}; //Average score would be 45.0.
-        Double[] examScores1 = {0.0, 0.0, 0.0, 10.0};
+        Double[] examScores1 = {0.0, 0.0, 0.0, 10.0}; //Average score would be 2.5 for 4 tests.
         Double[] examScores2 = {100.0, 90.0, 100.0, 85.0};
         Double[] examScores3 = {50.0, 75.0, 80.0, 85.0};
         Double[] examScores4 = {0.0, 0.0};
         Double[] examScores5 = {85.0, 85.0, 85.0};
+
         Student s = new Student("Charles", "Minor", examScores);
         Student s1 = new Student("Miguel", "Major", examScores1);
         Student s2 = new Student("Antonio", "Biggs", examScores2);
@@ -105,7 +106,7 @@ public class ClassroomTest {
         Student s5 = new Student("Chris", "Jill", examScores5);
 
         // When
-        Student[] student = {s, s1, s2, s3};
+        Student[] student = {s, s1, s2, s3, s4, s5};
         Classroom englishClass = new Classroom(student);
         Student[] postEnrollment = englishClass.getStudents();
         englishClass.getStudentByScore();
