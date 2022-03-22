@@ -91,6 +91,7 @@ public class ClassroomTest {
 
     @Test
     public void getStudentByScore() {
+        //Given
         Double[] examScores = {60.0, 50.0, 40.0, 30.0}; //Average score would be 45.0.
         Double[] examScores1 = {0.0, 0.0, 0.0, 10.0}; //Average score would be 2.5 for 4 tests.
         Double[] examScores2 = {100.0, 90.0, 100.0, 85.0};
